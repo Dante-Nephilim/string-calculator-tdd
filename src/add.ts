@@ -1,3 +1,5 @@
+import getDelimiters from "./getDelimiters";
+
 export function add(input: string): number {
   if (input.length === 0) {
     return 0;
@@ -11,10 +13,21 @@ export function add(input: string): number {
     return number;
   }
 
-  const delimiters = [",", "\n"];
+  let delimiters = [",", "\n"];
+
   if (input.startsWith("//")) {
-    delimiters.push(input[2]);
-    input = input.slice(4);
+    let spaceIndex: number = 0;
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] === "\n") {
+        spaceIndex = i;
+        break;
+      }
+    }
+
+    const extraDelimiters = getDelimiters(input.slice(2, spaceIndex));
+
+    delimiters = [...delimiters, ...extraDelimiters];
+    input = input.slice(spaceIndex + 1);
   }
   const numbers = input.split(new RegExp(delimiters.join("|")));
 

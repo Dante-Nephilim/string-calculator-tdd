@@ -80,3 +80,15 @@ test("multiple negative numbers with  custom delimiter and NaN", () => {
 test("EXTRA: Digits with value more than 1000 are ignored", () => {
   expect(add("1,2,3,1001")).toBe(6);
 });
+
+test("EXTRA: multiple digits with custom delimiters with more than one character", () => {
+  expect(add("//[;;;]\n1;;;2;;;3")).toBe(6);
+});
+
+test("EXTRA: multiple digits with custom delimiters with single character", () => {
+  expect(add("//[;][%]\n1;2%3")).toBe(6);
+});
+
+test("EXTRA: multiple digits with custom delimiters with multi characters", () => {
+  expect(add("//[;;;][%%%]\n1;;;2%%%3")).toBe(6);
+});
