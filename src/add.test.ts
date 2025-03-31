@@ -28,3 +28,15 @@ test("multiple digits with new line delimiter", () => {
 test("multiple digits with NaN and new line delimiter", () => {
   expect(() => add("1\na\n3,4")).toThrowError("Invalid Number");
 });
+
+test("multiple digits with custom delimiter", () => {
+  expect(add("//;\n1;2;3;4")).toBe(10);
+});
+
+test("multiple digits with custom delimiter and new line", () => {
+  expect(add("//;\n1;2;3\n4")).toBe(10);
+});
+
+test("multiple digits with custom delimiter and NaN", () => {
+  expect(() => add("//;\n1;2;e\n4")).toThrowError("Invalid Number");
+});

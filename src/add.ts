@@ -10,9 +10,12 @@ export function add(input: string): number {
     return parseInt(input, 10);
   }
 
-  let delimiter = [",", "\n"];
-
-  const numbers = input.split(new RegExp(delimiter.join("|")));
+  const delimiters = [",", "\n"];
+  if (input.startsWith("//")) {
+    delimiters.push(input[2]);
+    input = input.slice(4);
+  }
+  const numbers = input.split(new RegExp(delimiters.join("|")));
   // console.log(numbers);
 
   let sum = 0;
