@@ -12,3 +12,19 @@ test("single digit string", () => {
 test("single digit NaN", () => {
   expect(() => add("a")).toThrowError("Invalid Number");
 });
+
+test("multiple digit string", () => {
+  expect(add("1,2,3")).toBe(6);
+});
+
+test("multiple digits with NaN", () => {
+  expect(() => add("1,a,3")).toThrowError("Invalid Number");
+});
+
+test("multiple digits with new line delimiter", () => {
+  expect(add("1\n2\n3,4")).toBe(10);
+});
+
+test("multiple digits with NaN and new line delimiter", () => {
+  expect(() => add("1\na\n3,4")).toThrowError("Invalid Number");
+});

@@ -9,5 +9,19 @@ export function add(input: string): number {
     }
     return parseInt(input, 10);
   }
-  return 0;
+
+  let delimiter = [",", "\n"];
+
+  const numbers = input.split(new RegExp(delimiter.join("|")));
+  // console.log(numbers);
+
+  let sum = 0;
+  numbers.forEach((number) => {
+    if (Number.isNaN(parseInt(number, 10))) {
+      throw new Error("Invalid Number");
+    }
+    sum += parseInt(number, 10);
+  });
+  // console.log(sum);
+  return sum;
 }
