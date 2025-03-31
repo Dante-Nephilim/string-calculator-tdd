@@ -23,6 +23,7 @@ String Calculator with TypeScript, NodeJS, Vitest
 - Vitest UI
 
 ## Extra Cases Handled
+- Handled NaN cases
 - Ignore digits with value greater than 1000
 - single character multiple delimiters
 - multi character single delimiter
