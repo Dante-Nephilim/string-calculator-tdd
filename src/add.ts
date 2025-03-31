@@ -23,6 +23,9 @@ export function add(input: string): number {
     if (Number.isNaN(parseInt(number, 10))) {
       throw new Error("Invalid Number");
     }
+    if (parseInt(number, 10) < 0) {
+      throw new Error("negative numbers not allowed " + number);
+    }
     sum += parseInt(number, 10);
   });
   // console.log(sum);
