@@ -3,5 +3,11 @@ export function add(input: string): number {
     return 0;
   }
 
+  if (input.length === 1) {
+    if (Number.isNaN(parseInt(input, 10))) {
+      throw new Error("Invalid Number");
+    }
+    return parseInt(input, 10);
+  }
   return 0;
 }
