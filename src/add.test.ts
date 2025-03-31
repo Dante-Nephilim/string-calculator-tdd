@@ -76,3 +76,7 @@ test("multiple negative numbers with  custom delimiter and new line", () => {
 test("multiple negative numbers with  custom delimiter and NaN", () => {
   expect(() => add("//;\n-1;-2\na")).toThrowError("Invalid Number");
 });
+
+test("EXTRA: Digits with value more than 1000 are ignored", () => {
+  expect(add("1,2,3,1001")).toBe(6);
+});

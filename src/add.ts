@@ -4,10 +4,11 @@ export function add(input: string): number {
   }
 
   if (input.length === 1) {
-    if (Number.isNaN(parseInt(input, 10))) {
+    const number = parseInt(input, 10);
+    if (Number.isNaN(number)) {
       throw new Error("Invalid Number");
     }
-    return parseInt(input, 10);
+    return number;
   }
 
   const delimiters = [",", "\n"];
@@ -20,16 +21,19 @@ export function add(input: string): number {
   let sum = 0;
   const negativeNumbers: number[] = [];
 
-  numbers.forEach((number) => {
-    if (Number.isNaN(parseInt(number, 10))) {
+  numbers.forEach((numberString) => {
+    let number = parseInt(numberString, 10);
+    if (Number.isNaN(number)) {
       throw new Error("Invalid Number");
     }
 
-    if (parseInt(number, 10) < 0) {
-      negativeNumbers.push(parseInt(number, 10));
+    if (number < 0) {
+      negativeNumbers.push(number);
     }
 
-    sum += parseInt(number, 10);
+    if (number <= 1000) {
+      sum += number;
+    }
   });
 
   if (negativeNumbers.length > 0) {
