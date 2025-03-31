@@ -4,6 +4,11 @@ String Calculator with TypeScript, NodeJS, Vitest
 
 ---
 
+## DEMO: 
+<a href="https://www.loom.com/share/2a9bf705c2b54024b95dc2dc3fc39b16?sid=d0ec89a6-def4-4252-ba61-27d278e1df19" target="_blank"><p>Video Demo Link</p>
+<img src="demo.gif" alt="Demo GIF">
+</a>
+
 ## TEST UI - SCREENSHOT: 
 <img src="test_result_ui.png"/>
 
