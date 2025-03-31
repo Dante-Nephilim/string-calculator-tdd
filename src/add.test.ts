@@ -54,9 +54,25 @@ test("multiple digits with negative number", () => {
 });
 
 test("multiple digits with negative number and NaN", () => {
-  expect(() => add("-1,a,3")).toThrowError("negative numbers not allowed -1");
+  expect(() => add("-1,a,3")).toThrowError("Invalid Number");
 });
 
 test("multiple digits with NaN and negative number", () => {
   expect(() => add("a,-1,3")).toThrowError("Invalid Number");
+});
+
+test("multiple negative number", () => {
+  expect(() => add("-1,-2,-3")).toThrowError("negative numbers not allowed -1,-2,-3");
+});
+
+test("multiple negative numbers with  custom delimiter", () => {
+  expect(() => add("//;\n-1;-2;-3")).toThrowError("negative numbers not allowed -1,-2,-3");
+});
+
+test("multiple negative numbers with  custom delimiter and new line", () => {
+  expect(() => add("//;\n-1;-2\n-3")).toThrowError("negative numbers not allowed -1,-2,-3");
+});
+
+test("multiple negative numbers with  custom delimiter and NaN", () => {
+  expect(() => add("//;\n-1;-2\na")).toThrowError("Invalid Number");
 });
