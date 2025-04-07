@@ -33,7 +33,4 @@ String Calculator with TypeScript, NodeJS, Vitest
 - single character multiple delimiters
 - multi character single delimiter
 - multi character multiple delimiters 
-
-## Further Enhancements
-
-- Handle as * and combination of * as custom delimiter
+- Handled * and combination of * as custom delimiter

@@ -92,3 +92,7 @@ test("EXTRA: multiple digits with custom delimiters with single character", () =
 test("EXTRA: multiple digits with custom delimiters with multi characters", () => {
   expect(add("//[;;;][%%%]\n1;;;2%%%3")).toBe(6);
 });
+
+test("EXTRA: Handle asterisk as a delimiter", () => {
+  expect(add("//[*]\n1*2*3")).toBe(6);
+});

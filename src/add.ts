@@ -29,6 +29,30 @@ export function add(input: string): number {
     delimiters = [...delimiters, ...extraDelimiters];
     input = input.slice(spaceIndex + 1);
   }
+
+  // converting * to \*  in input
+
+  input = input
+    .split("")
+    .map((i) => {
+      if (i === "*") {
+        return "\\*";
+      } else {
+        return i;
+      }
+    })
+    .join("");
+
+  // converting * to \*  in delimiters
+
+  delimiters = delimiters.map((d) => {
+    if (d === "*") {
+      return "\\*";
+    } else {
+      return d;
+    }
+  });
+
   const numbers = input.split(new RegExp(delimiters.join("|")));
 
   let sum = 0;
